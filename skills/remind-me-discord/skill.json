@@ -1,0 +1,10 @@
+{
+  "name": "remind-me-discord",
+  "version": "1.0.0",
+  "description": "Set reminders that send messages to Discord at scheduled times. Supports natural language time parsing.",
+  "author": "OpenClaw",
+  "emoji": "⏰",
+  "requires": {
+    "bins": ["openclaw"]
+  }
+}

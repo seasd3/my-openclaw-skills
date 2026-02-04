@@ -1,0 +1,100 @@
+# OpenClaw Skills Repository - Gitignore
+# 严格保护隐私和安全
+
+# ========================================
+# 绝对禁止上传的敏感文件
+# ========================================
+
+# 个人记忆和配置（极高风险）
+MEMORY.md
+USER.md
+IDENTITY.md
+BOOTSTRAP.md
+HEARTBEAT.md
+tools.md
+TOOLS.md
+
+# 配置文件（包含 token/credentials）
+config.yaml
+config.json
+openclaw.json
+*.config.js
+.env
+.env.*
+.env.local
+.env.development
+.env.production
+
+# 记忆目录（聊天记录、个人数据）
+memory/
+memory-backup/
+logs/
+
+# 媒体文件（可能包含敏感截图）
+media/
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.mov
+*.mp4
+*.mp3
+*.wav
+*.ogg
+
+# 临时文件
+temp_*
+*.tmp
+*.temp
+~$*
+
+# ========================================
+# Node.js / Python 依赖
+# ========================================
+node_modules/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+.venv/
+venv/
+env/
+ENV/
+
+# ========================================
+# IDE 和编辑器
+# ========================================
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# ========================================
+# 安全相关
+# ========================================
+*.pem
+*.key
+*.crt
+*.pfx
+secrets/
+credentials/
+*.token
+*.secret
+
+# ========================================
+# 其他
+# ========================================
+.git/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
