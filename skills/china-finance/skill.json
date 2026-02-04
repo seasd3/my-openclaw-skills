@@ -1,0 +1,11 @@
+{
+  "name": "china-finance",
+  "version": "1.0.0",
+  "description": "国内股市基金理财数据查询 - 使用AKShare和Baostock免费接口",
+  "author": "OpenClaw",
+  "emoji": "📈",
+  "requires": {
+    "bins": ["python"],
+    "python_packages": ["akshare", "baostock", "pandas"]
+  }
+}
