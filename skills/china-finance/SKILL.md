@@ -15,33 +15,34 @@ metadata:
 
 - 📊 A股实时行情 (AKShare)
 - 📈 指数行情（上证、深证、创业板）(AKShare)
-- 🏦 基金净值查询 (AKShare + 新浪财经备用)
+- 🏦 基金净值查询 (新浪财经 + 东方财富)
 - 📉 历史K线数据 (Baostock)
 - 🔄 资金流向 (AKShare)
 
 ## 使用方法
 
+### 基金净值查询（推荐稳定版）
+
+```bash
+# 稳定版 - 新浪财经接口（推荐）
+python scripts/my_funds_stable.py
+python scripts/fund_nav_stable.py --code 017193
+
+# 新浪财经接口
+python scripts/fund_nav_sina.py --code 017193
+python scripts/my_funds_sina.py
+
+# 天天基金网接口
+python scripts/fund_nav_eastmoney.py --code 017193
+
+# AKShare 接口（可能不稳定）
+python scripts/fund_nav.py --code 017193
+python scripts/my_funds.py
+```
+
 ### A股实时行情
 ```bash
 python scripts/stock_quote.py
-```
-
-### 基金净值查询
-```bash
-# AKShare 接口（默认）
-python scripts/fund_nav.py --code 017193
-
-# 新浪财经接口（备用，更稳定）
-python scripts/fund_nav_sina.py --code 017193
-```
-
-### 持仓基金分析
-```bash
-# AKShare 接口
-python scripts/my_funds.py
-
-# 新浪财经接口（推荐，备用方案）
-python scripts/my_funds_sina.py
 ```
 
 ### 指数行情
@@ -54,28 +55,27 @@ python scripts/index_quote.py
 python scripts/history.py --code 000001 --days 30
 ```
 
-## 数据源
+## 数据源对比
 
-| 接口 | 用途 | 特点 |
+| 接口 | 稳定性 | 实时性 | 推荐场景 |
+|------|--------|--------|---------|
+| **新浪财经** | ✅ 高 | ✅ 高 | **首选** |
+| 天天基金网 | ⚠️ 中 | ✅ 高 | 备用 |
+| AKShare | ⚠️ 不稳 | ⚠️ 有时延迟 | 备用 |
+
+## 脚本说明
+
+| 脚本 | 接口 | 特点 |
 |------|------|------|
-| **AKShare** | 实时行情、基金数据 | 数据丰富，偶有延迟 |
-| **新浪财经** | 基金净值（备用） | 更稳定，完全免费 |
-| **Baostock** | 历史K线 | 数据完整，更新及时 |
-
-## 备用方案
-
-当 AKShare 不稳定时，使用新浪财经接口：
-
-```bash
-# 查询单只基金
-python scripts/fund_nav_sina.py --code 017193
-
-# 批量分析持仓
-python scripts/my_funds_sina.py
-```
+| `my_funds_stable.py` | 新浪财经 | **推荐，稳定** |
+| `fund_nav_stable.py` | 新浪财经 | 单只基金查询 |
+| `my_funds_sina.py` | 新浪财经 | 备用 |
+| `fund_nav_sina.py` | 新浪财经 | 单只基金查询 |
+| `my_funds.py` | AKShare | 可能不稳定 |
+| `fund_nav.py` | AKShare | 可能不稳定 |
 
 ## 注意
 
 - 数据仅供学习参考，不构成投资建议
-- 新浪财经接口无需 API Key，完全免费
-- 建议两个接口交替使用，确保数据获取成功
+- 基金净值分为**估算净值**（盘中）和**真实净值**（21:00 后）
+- 建议以支付宝/天天基金网页数据为准
